@@ -4,7 +4,6 @@ using SimpleFormatter.ConcreteDecorators.TextDecorators;
 using SimpleFormatter.Decorators;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace SimpleFormatter.ConcreteFactories
 {
