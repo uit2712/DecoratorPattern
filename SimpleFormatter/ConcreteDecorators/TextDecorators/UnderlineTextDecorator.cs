@@ -1,6 +1,6 @@
-﻿using SimpleFormatter.Decorators;
+﻿using SimpleFormatter.ConcreteComponents;
+using SimpleFormatter.Decorators;
 using System.Drawing;
-using System.Windows.Forms;
 
 namespace SimpleFormatter.ConcreteDecorators.TextDecorators
 {
@@ -9,7 +9,7 @@ namespace SimpleFormatter.ConcreteDecorators.TextDecorators
     /// </summary>
     class UnderlineTextDecorator : TextDecorator
     {
-        public UnderlineTextDecorator(RichTextBox richTextBox)
+        public UnderlineTextDecorator(CustomRichTextBox richTextBox)
             : base(richTextBox)
         {
 

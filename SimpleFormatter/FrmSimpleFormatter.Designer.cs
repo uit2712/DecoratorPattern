@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rtxtSimpleText = new System.Windows.Forms.RichTextBox();
+            this.rtxtSimpleText = new ConcreteComponents.CustomRichTextBox();
             this.btnBold = new System.Windows.Forms.Button();
             this.btnItalic = new System.Windows.Forms.Button();
             this.btnUnderline = new System.Windows.Forms.Button();
@@ -169,7 +169,7 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox rtxtSimpleText;
+        private ConcreteComponents.CustomRichTextBox rtxtSimpleText;
         private System.Windows.Forms.Button btnBold;
         private System.Windows.Forms.Button btnItalic;
         private System.Windows.Forms.Button btnUnderline;

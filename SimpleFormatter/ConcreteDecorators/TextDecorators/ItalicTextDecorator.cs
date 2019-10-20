@@ -1,6 +1,6 @@
-﻿using SimpleFormatter.Decorators;
+﻿using SimpleFormatter.ConcreteComponents;
+using SimpleFormatter.Decorators;
 using System.Drawing;
-using System.Windows.Forms;
 
 namespace SimpleFormatter.ConcreteDecorators.TextDecorators
 {
@@ -9,7 +9,7 @@ namespace SimpleFormatter.ConcreteDecorators.TextDecorators
     /// </summary>
     class ItalicTextDecorator : TextDecorator
     {
-        public ItalicTextDecorator(RichTextBox richTextBox)
+        public ItalicTextDecorator(CustomRichTextBox richTextBox)
             : base(richTextBox)
         {
 

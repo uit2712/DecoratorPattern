@@ -1,6 +1,6 @@
-﻿using SimpleFormatter.Decorators;
+﻿using SimpleFormatter.ConcreteComponents;
+using SimpleFormatter.Decorators;
 using System;
-using System.Windows.Forms;
 
 namespace SimpleFormatter.AbstractFactories
 {
@@ -9,6 +9,6 @@ namespace SimpleFormatter.AbstractFactories
     /// </summary>
     interface ITextDecoratorAbstractFactory
     {
-        TextDecorator GetTextDecorator(Type type, RichTextBox richTextBox);
+        TextDecorator GetTextDecorator(Type type, CustomRichTextBox richTextBox);
     }
 }

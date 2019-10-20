@@ -47,31 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractFactories\ITextDecoratorAbstractFactory.cs" />
+    <Compile Include="Components\IFormatComponent.cs" />
+    <Compile Include="ConcreteComponents\CustomRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ConcreteFactories\TextDecoratorFactory.cs" />
-    <Compile Include="ConcreteDecorators\TextDecorators\AlignCenterTextDecorator.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ConcreteDecorators\TextDecorators\AlignLeftTextDecorator.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ConcreteDecorators\TextDecorators\AlignRightTextDecorator.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ConcreteDecorators\TextDecorators\BoldTextDecorator.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ConcreteDecorators\TextDecorators\ItalicTextDecorator.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Decorators\TextDecorator.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ConcreteDecorators\TextDecorators\UnderlineTextDecorator.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Decorators\TextDecoratorWithParam.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="ConcreteDecorators\TextDecorators\AlignCenterTextDecorator.cs" />
+    <Compile Include="ConcreteDecorators\TextDecorators\AlignLeftTextDecorator.cs" />
+    <Compile Include="ConcreteDecorators\TextDecorators\AlignRightTextDecorator.cs" />
+    <Compile Include="ConcreteDecorators\TextDecorators\BoldTextDecorator.cs" />
+    <Compile Include="ConcreteDecorators\TextDecorators\ItalicTextDecorator.cs" />
+    <Compile Include="Decorators\TextDecorator.cs" />
+    <Compile Include="ConcreteDecorators\TextDecorators\UnderlineTextDecorator.cs" />
     <Compile Include="FrmSimpleFormatter.cs">
       <SubType>Form</SubType>
     </Compile>

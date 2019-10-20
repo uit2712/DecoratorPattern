@@ -1,4 +1,5 @@
 ﻿using SimpleFormatter.AbstractFactories;
+using SimpleFormatter.ConcreteComponents;
 using SimpleFormatter.ConcreteDecorators.TextDecorators;
 using SimpleFormatter.Decorators;
 using System;
@@ -28,7 +29,7 @@ namespace SimpleFormatter.ConcreteFactories
             return _instance;
         }
 
-        public TextDecorator GetTextDecorator(Type type, RichTextBox richTextBox)
+        public TextDecorator GetTextDecorator(Type type, CustomRichTextBox richTextBox)
         {
             if (type == null || !type.IsSubclassOf(typeof(TextDecorator)))
                 return null;

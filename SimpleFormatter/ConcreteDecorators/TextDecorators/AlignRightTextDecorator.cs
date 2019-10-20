@@ -1,4 +1,5 @@
-﻿using SimpleFormatter.Decorators;
+﻿using SimpleFormatter.ConcreteComponents;
+using SimpleFormatter.Decorators;
 using System.Windows.Forms;
 
 namespace SimpleFormatter.ConcreteDecorators.TextDecorators
@@ -8,7 +9,7 @@ namespace SimpleFormatter.ConcreteDecorators.TextDecorators
     /// </summary>
     class AlignRightTextDecorator : TextDecorator
     {
-        public AlignRightTextDecorator(RichTextBox richTextBox)
+        public AlignRightTextDecorator(CustomRichTextBox richTextBox)
             : base(richTextBox)
         {
 

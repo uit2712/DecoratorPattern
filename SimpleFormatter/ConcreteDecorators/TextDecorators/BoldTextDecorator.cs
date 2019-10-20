@@ -1,4 +1,5 @@
-﻿using SimpleFormatter.Decorators;
+﻿using SimpleFormatter.ConcreteComponents;
+using SimpleFormatter.Decorators;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,7 +10,7 @@ namespace SimpleFormatter.ConcreteDecorators.TextDecorators
     /// </summary>
     class BoldTextDecorator : TextDecorator
     {
-        public BoldTextDecorator(RichTextBox richTextBox)
+        public BoldTextDecorator(CustomRichTextBox richTextBox)
             : base(richTextBox)
         {
 

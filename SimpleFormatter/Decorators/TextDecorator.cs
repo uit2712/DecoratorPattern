@@ -1,15 +1,16 @@
-﻿using System.Windows.Forms;
+﻿using SimpleFormatter.Components;
+using SimpleFormatter.ConcreteComponents;
 
 namespace SimpleFormatter.Decorators
 {
     /// <summary>
     /// Base decorator
     /// </summary>
-    abstract class TextDecorator : RichTextBox
+    abstract class TextDecorator : IFormatComponent
     {
-        protected RichTextBox _richTextBox = null;
+        protected CustomRichTextBox _richTextBox = null;
 
-        public TextDecorator(RichTextBox richTextBox)
+        public TextDecorator(CustomRichTextBox richTextBox)
         {
             _richTextBox = richTextBox;
         }
