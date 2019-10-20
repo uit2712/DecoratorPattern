@@ -1,4 +1,6 @@
-﻿using SimpleFormatter.ConcreteDecorators.TextDecorators;
+﻿using SimpleFormatter.Components;
+using SimpleFormatter.ConcreteComponents;
+using SimpleFormatter.ConcreteDecorators.TextDecorators;
 using SimpleFormatter.ConcreteFactories;
 using SimpleFormatter.Decorators;
 using System.Collections.Generic;
@@ -13,7 +15,13 @@ namespace SimpleFormatter
         {
             InitializeComponent();
             InitFonts();
+
+            TextDecorator boldAndItalicDecorator
+                = new BoldTextDecorator(new ItalicTextDecorator(_component));
+            boldAndItalicDecorator.Format(rtxtSimpleText);
         }
+
+        private IFormatComponent _component = new CustomRichTextBox();
 
         private void InitFonts()
         {
@@ -36,8 +44,8 @@ namespace SimpleFormatter
 
         private void btnBold_Click(object sender, System.EventArgs e)
         {
-            TextDecorator textDecorator = TextDecoratorFactory.Instance().GetTextDecorator(typeof(BoldTextDecorator), rtxtSimpleText);
-            textDecorator?.Format();
+            TextDecorator textDecorator = TextDecoratorFactory.Instance().GetTextDecorator(typeof(BoldTextDecorator), _component);
+            textDecorator?.Format(rtxtSimpleText);
 
             Button button = sender as Button;
             ChangeFormatEffect(rtxtSimpleText, button, FontStyle.Bold);
@@ -45,8 +53,8 @@ namespace SimpleFormatter
 
         private void btnItalic_Click(object sender, System.EventArgs e)
         {
-            TextDecorator textDecorator = TextDecoratorFactory.Instance().GetTextDecorator(typeof(ItalicTextDecorator), rtxtSimpleText);
-            textDecorator?.Format();
+            TextDecorator textDecorator = TextDecoratorFactory.Instance().GetTextDecorator(typeof(ItalicTextDecorator), _component);
+            textDecorator?.Format(rtxtSimpleText);
 
             Button button = sender as Button;
             ChangeFormatEffect(rtxtSimpleText, button, FontStyle.Italic);
@@ -54,8 +62,8 @@ namespace SimpleFormatter
 
         private void btnUnderline_Click(object sender, System.EventArgs e)
         {
-            TextDecorator textDecorator = TextDecoratorFactory.Instance().GetTextDecorator(typeof(UnderlineTextDecorator), rtxtSimpleText);
-            textDecorator?.Format();
+            TextDecorator textDecorator = TextDecoratorFactory.Instance().GetTextDecorator(typeof(UnderlineTextDecorator), _component);
+            textDecorator?.Format(rtxtSimpleText);
 
             Button button = sender as Button;
             ChangeFormatEffect(rtxtSimpleText, button, FontStyle.Underline);
@@ -71,20 +79,20 @@ namespace SimpleFormatter
 
         private void btnAlignLeft_Click(object sender, System.EventArgs e)
         {
-            TextDecorator textDecorator = TextDecoratorFactory.Instance().GetTextDecorator(typeof(AlignLeftTextDecorator), rtxtSimpleText);
-            textDecorator?.Format();
+            TextDecorator textDecorator = TextDecoratorFactory.Instance().GetTextDecorator(typeof(AlignLeftTextDecorator), _component);
+            textDecorator?.Format(rtxtSimpleText);
         }
 
         private void btnAlignCenter_Click(object sender, System.EventArgs e)
         {
-            TextDecorator textDecorator = TextDecoratorFactory.Instance().GetTextDecorator(typeof(AlignCenterTextDecorator), rtxtSimpleText);
-            textDecorator?.Format();
+            TextDecorator textDecorator = TextDecoratorFactory.Instance().GetTextDecorator(typeof(AlignCenterTextDecorator), _component);
+            textDecorator?.Format(rtxtSimpleText);
         }
 
         private void btnAlignRight_Click(object sender, System.EventArgs e)
         {
-            TextDecorator textDecorator = TextDecoratorFactory.Instance().GetTextDecorator(typeof(AlignRightTextDecorator), rtxtSimpleText);
-            textDecorator?.Format();
+            TextDecorator textDecorator = TextDecoratorFactory.Instance().GetTextDecorator(typeof(AlignRightTextDecorator), _component);
+            textDecorator?.Format(rtxtSimpleText);
         }
     }
 }

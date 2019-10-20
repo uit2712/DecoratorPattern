@@ -1,4 +1,4 @@
-﻿using SimpleFormatter.ConcreteComponents;
+﻿using SimpleFormatter.Components;
 using SimpleFormatter.Decorators;
 using System.Drawing;
 using System.Windows.Forms;
@@ -10,26 +10,31 @@ namespace SimpleFormatter.ConcreteDecorators.TextDecorators
     /// </summary>
     class BoldTextDecorator : TextDecorator
     {
-        public BoldTextDecorator(CustomRichTextBox richTextBox)
-            : base(richTextBox)
+        public BoldTextDecorator(IFormatComponent component)
+            : base(component)
         {
 
         }
 
-        public override void Format()
+        public override void Format(RichTextBox richTextBox)
         {
-            if (_richTextBox == null
-                || _richTextBox.SelectionLength == 0)
+            SetTextBold(richTextBox);
+            _component?.Format(richTextBox);
+        }
+
+        private void SetTextBold(RichTextBox richTextBox)
+        {
+            if (richTextBox == null)
                 return;
 
-            int selectionStart = _richTextBox.SelectionStart;
-            int selectionLength = _richTextBox.SelectionLength;
+            int selectionStart = richTextBox.SelectionStart;
+            int selectionLength = richTextBox.SelectionLength;
 
-            if (!_richTextBox.SelectionFont.Bold)
-                _richTextBox.SelectionFont = new Font(_richTextBox.SelectionFont, _richTextBox.SelectionFont.Style | FontStyle.Bold);
-            else _richTextBox.SelectionFont = new Font(_richTextBox.SelectionFont, _richTextBox.SelectionFont.Style & ~FontStyle.Bold);
+            if (!richTextBox.SelectionFont.Bold)
+                richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, richTextBox.SelectionFont.Style | FontStyle.Bold);
+            else richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, richTextBox.SelectionFont.Style & ~FontStyle.Bold);
 
-            _richTextBox.Focus();
+            richTextBox.Focus();
         }
     }
 }

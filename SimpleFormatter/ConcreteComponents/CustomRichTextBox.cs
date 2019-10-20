@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace SimpleFormatter.ConcreteComponents
 {
-    class CustomRichTextBox : RichTextBox, IFormatComponent
+    class CustomRichTextBox : IFormatComponent
     {
-        public void Format()
+        public void Format(RichTextBox richTextBox)
         {
             
         }

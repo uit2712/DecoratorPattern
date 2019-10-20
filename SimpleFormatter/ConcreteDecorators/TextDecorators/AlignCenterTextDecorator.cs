@@ -1,4 +1,4 @@
-﻿using SimpleFormatter.ConcreteComponents;
+﻿using SimpleFormatter.Components;
 using SimpleFormatter.Decorators;
 using System.Windows.Forms;
 
@@ -9,21 +9,27 @@ namespace SimpleFormatter.ConcreteDecorators.TextDecorators
     /// </summary>
     class AlignCenterTextDecorator : TextDecorator
     {
-        public AlignCenterTextDecorator(CustomRichTextBox richTextBox)
-            : base(richTextBox)
+        public AlignCenterTextDecorator(IFormatComponent component)
+            : base(component)
         {
 
         }
 
-        public override void Format()
+        public override void Format(RichTextBox richTextBox)
         {
-            if (_richTextBox == null)
+            AlignCenter(richTextBox);
+            _component?.Format(richTextBox);
+        }
+
+        private void AlignCenter(RichTextBox richTextBox)
+        {
+            if (richTextBox == null)
                 return;
 
-            if (_richTextBox.SelectionAlignment != HorizontalAlignment.Center)
-                _richTextBox.SelectionAlignment = HorizontalAlignment.Center;
-            else _richTextBox.SelectionAlignment = HorizontalAlignment.Left;
-            _richTextBox.Focus();
+            if (richTextBox.SelectionAlignment != HorizontalAlignment.Center)
+                richTextBox.SelectionAlignment = HorizontalAlignment.Center;
+            else richTextBox.SelectionAlignment = HorizontalAlignment.Left;
+            richTextBox.Focus();
         }
     }
 }

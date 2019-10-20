@@ -1,4 +1,5 @@
-﻿using SimpleFormatter.ConcreteComponents;
+﻿using SimpleFormatter.Components;
+using SimpleFormatter.ConcreteComponents;
 using SimpleFormatter.Decorators;
 using System.Windows.Forms;
 
@@ -9,19 +10,25 @@ namespace SimpleFormatter.ConcreteDecorators.TextDecorators
     /// </summary>
     class AlignLeftTextDecorator : TextDecorator
     {
-        public AlignLeftTextDecorator(CustomRichTextBox richTextBox)
-            : base(richTextBox)
+        public AlignLeftTextDecorator(IFormatComponent component)
+            : base(component)
         {
 
         }
 
-        public override void Format()
+        public override void Format(RichTextBox richTextBox)
         {
-            if (_richTextBox == null)
+            AlignLeft(richTextBox);
+            _component?.Format(richTextBox);
+        }
+
+        private void AlignLeft(RichTextBox richTextBox)
+        {
+            if (richTextBox == null)
                 return;
 
-            _richTextBox.SelectionAlignment = HorizontalAlignment.Left;
-            _richTextBox.Focus();
+            richTextBox.SelectionAlignment = HorizontalAlignment.Left;
+            richTextBox.Focus();
         }
     }
 }

@@ -1,7 +1,9 @@
-﻿namespace SimpleFormatter.Components
+﻿using System.Windows.Forms;
+
+namespace SimpleFormatter.Components
 {
     interface IFormatComponent
     {
-        void Format();
+        void Format(RichTextBox richTextBox);
     }
 }

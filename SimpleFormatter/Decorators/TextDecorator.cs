@@ -1,5 +1,5 @@
 ﻿using SimpleFormatter.Components;
-using SimpleFormatter.ConcreteComponents;
+using System.Windows.Forms;
 
 namespace SimpleFormatter.Decorators
 {
@@ -8,13 +8,13 @@ namespace SimpleFormatter.Decorators
     /// </summary>
     abstract class TextDecorator : IFormatComponent
     {
-        protected CustomRichTextBox _richTextBox = null;
+        protected IFormatComponent _component = null;
 
-        public TextDecorator(CustomRichTextBox richTextBox)
+        public TextDecorator(IFormatComponent component)
         {
-            _richTextBox = richTextBox;
+            _component = component;
         }
 
-        public abstract void Format();
+        public abstract void Format(RichTextBox richTextBox);
     }
 }

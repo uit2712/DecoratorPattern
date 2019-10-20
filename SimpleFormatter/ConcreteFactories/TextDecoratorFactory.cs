@@ -1,9 +1,11 @@
 ﻿using SimpleFormatter.AbstractFactories;
+using SimpleFormatter.Components;
 using SimpleFormatter.ConcreteComponents;
 using SimpleFormatter.ConcreteDecorators.TextDecorators;
 using SimpleFormatter.Decorators;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace SimpleFormatter.ConcreteFactories
 {
@@ -28,7 +30,7 @@ namespace SimpleFormatter.ConcreteFactories
             return _instance;
         }
 
-        public TextDecorator GetTextDecorator(Type type, CustomRichTextBox richTextBox)
+        public TextDecorator GetTextDecorator(Type type, IFormatComponent component)
         {
             if (type == null || !type.IsSubclassOf(typeof(TextDecorator)))
                 return null;
@@ -36,7 +38,7 @@ namespace SimpleFormatter.ConcreteFactories
             if (type == typeof(BoldTextDecorator))
             {
                 if (!_textDecorators.ContainsKey(type))
-                    _textDecorators[type] = new BoldTextDecorator(richTextBox);
+                    _textDecorators[type] = new BoldTextDecorator(component);
 
                 return _textDecorators[type];
             }
@@ -44,7 +46,7 @@ namespace SimpleFormatter.ConcreteFactories
             if (type == typeof(ItalicTextDecorator))
             {
                 if (!_textDecorators.ContainsKey(type))
-                    _textDecorators[type] = new ItalicTextDecorator(richTextBox);
+                    _textDecorators[type] = new ItalicTextDecorator(component);
 
                 return _textDecorators[type];
             }
@@ -52,7 +54,7 @@ namespace SimpleFormatter.ConcreteFactories
             if (type == typeof(UnderlineTextDecorator))
             {
                 if (!_textDecorators.ContainsKey(type))
-                    _textDecorators[type] = new UnderlineTextDecorator(richTextBox);
+                    _textDecorators[type] = new UnderlineTextDecorator(component);
 
                 return _textDecorators[type];
             }
@@ -60,7 +62,7 @@ namespace SimpleFormatter.ConcreteFactories
             if (type == typeof(AlignLeftTextDecorator))
             {
                 if (!_textDecorators.ContainsKey(type))
-                    _textDecorators[type] = new AlignLeftTextDecorator(richTextBox);
+                    _textDecorators[type] = new AlignLeftTextDecorator(component);
 
                 return _textDecorators[type];
             }
@@ -68,7 +70,7 @@ namespace SimpleFormatter.ConcreteFactories
             if (type == typeof(AlignRightTextDecorator))
             {
                 if (!_textDecorators.ContainsKey(type))
-                    _textDecorators[type] = new AlignRightTextDecorator(richTextBox);
+                    _textDecorators[type] = new AlignRightTextDecorator(component);
 
                 return _textDecorators[type];
             }
@@ -76,7 +78,7 @@ namespace SimpleFormatter.ConcreteFactories
             if (type == typeof(AlignCenterTextDecorator))
             {
                 if (!_textDecorators.ContainsKey(type))
-                    _textDecorators[type] = new AlignCenterTextDecorator(richTextBox);
+                    _textDecorators[type] = new AlignCenterTextDecorator(component);
 
                 return _textDecorators[type];
             }
